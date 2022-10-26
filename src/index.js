@@ -1,13 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
+import App from "./App";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import Dashboard from "./components/Dashboard/Dashboard";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path={"/"}>
+          <App />
+        </Route>
+        <Route path={"/dashboard"}>
+          <Dashboard />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>
 );
 
